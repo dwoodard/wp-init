@@ -1,20 +1,15 @@
 #!/bin/bash
 
+# curl -s https://github.com/dwoodard/wp-init/archive/refs/heads/master.zip | bash -s
+
+
 # Check for the All-in-One WP Migration plugin
 if ! wp plugin is-installed all-in-one-wp-migration; then
     wp plugin install all-in-one-wp-migration --activate
-fi
+fi 
 
-# Base64-encoded ZIP content of the plugin
-plugin_zip_base64="UEsFBgAAAAAAAAAAAAAAAA=="
-
-# Decode and save the plugin ZIP
-echo "$plugin_zip_base64" | base64 -d > wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip
-
-# Check if the file exists
-if [ -f wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip ]; then
-    echo "The All-in-One WP Migration Unlimited Extension plugin is not installed. Installing..."
-fi
+# I have stored the plugin in my github repo dwoodard/wp-init, so I can download it with curl
+curl -o wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip -s https://raw.githubusercontent.com/dwoodard/wp-init/master/_plugins/all-in-one-wp-migration-unlimited-extension.zip
 
 # After moving, unzip the plugin
 unzip wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip -d wp-content/plugins/
