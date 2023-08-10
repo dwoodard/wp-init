@@ -2,23 +2,15 @@
 
 # Check for the All-in-One WP Migration plugin
 if ! wp plugin is-installed all-in-one-wp-migration; then
-    echo "The All-in-One WP Migration plugin is not installed. Installing..."
     wp plugin install all-in-one-wp-migration --activate
 fi
 
 # copy the plugin to wp-content/plugins/
-curl -o wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip https://import.wp-migration.com/all-in-one-wp-migration-unlimited-extension.zip
-
-
-
-
+curl -o wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip https://github.com/dwoodard/wp-init/blob/9c72927ac2a1afc8736035290cb81e990a458848/_plugins/all-in-one-wp-migration-unlimited-extension.zip
 
 # check if the file exists
 if [ -f wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip ]; then
     echo "The All-in-One WP Migration Unlimited Extension plugin is not installed. Installing..."
-else
-    echo "The All-in-One WP Migration Unlimited Extension plugin is not installed. Please download the plugin from https://import.wp-migration.com/ and place it in the _plugins directory."
-    exit 1
 fi
 
 # After moving, unzip the plugin
