@@ -6,8 +6,12 @@ if ! wp plugin is-installed all-in-one-wp-migration; then
     wp plugin install all-in-one-wp-migration --activate
 fi
 
-# copy the plugin directory to wp-content/plugins/
-cp ../_plugins/all-in-one-wp-migration-unlimited-extension.zip wp-content/plugins/
+# copy the plugin to wp-content/plugins/
+curl -o wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip https://import.wp-migration.com/all-in-one-wp-migration-unlimited-extension.zip
+
+
+
+
 
 # check if the file exists
 if [ -f wp-content/plugins/all-in-one-wp-migration-unlimited-extension.zip ]; then
