@@ -4,14 +4,12 @@ wp-init is a simple bash script that will install WordPress for you. It will als
 
 ## Usage
 
-```bash
-./wp-init.sh
-```
+To use wp-init, you can either download the script and run it,
 
 or just copy and paste the following command into your terminal:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/dwoodard/wp-init/master/wp-init.sh)
+curl -s https://raw.githubusercontent.com/dwoodard/wp-init/master/wp-init.sh | bash -s
 ```
 
 ## Features
